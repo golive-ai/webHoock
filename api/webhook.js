@@ -1,9 +1,10 @@
 export default function handler(req, res) {
-  // Exibe no log da Vercel o que chegou
-  console.log("--- NOVO WEBHOOK RECEBIDO ---");
-  console.log("Headers:", req.headers);
-  console.log("Corpo da mensagem:", req.body);
+  // 1. Logar o que está chegando para você ver nos Logs da Vercel
+  console.log("Recebi uma chamada do RD Station!");
+  console.log("Método:", req.method);
+  console.log("Corpo:", req.body);
 
-  // Responde com OK
-  res.status(200).json({ status: 'recebido' });
+  // 2. O PULO DO GATO: Responder sempre 200 OK para o RD não travar
+  // Não importa o que venha, nós dizemos que recebemos.
+  return res.status(200).json({ status: "recebido" });
 }
